@@ -1,23 +1,14 @@
 
-import './index.css';
-import React, {useState} from "react";
+import React from 'react';
+//import React, { Component } from 'react';
+import {encryptData} from './OrginalData';
 
+//class Main extends Component               
+    const originalData={
+            name:'IDKBlogs'
+     }
+    const salt = process.env.SALT || '6d090796-ecdf-11ea-adc1-0242ac120003';
+    const encryptedData = encryptData(originalData, salt);
+    localStorage.setItem('SOME_NON_RADABLE_KEY', encryptedData); // SOME_NON_RADABLE_KEY like 'mk' as 'myKey'
 
-
-function App() {
-    const[name,setName] =useState("fff");
-
-    const inputEvent=() =>{
-        console.log('clicked')
-    }
-  return (
-    <>
-    <h1>{name}</h1>
-    <input type="text" placeholder ="Enter the text" onChange={inputEvent}/>
-    <button onClick={onSubmit}>click</button>
- 
-    </>
-  );
-}
-
-export default App;
+export default originalData
