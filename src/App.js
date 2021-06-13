@@ -1,14 +1,19 @@
 
+
+
+
 import React from 'react';
-//import React, { Component } from 'react';
-import {encryptData} from './OrginalData';
+//import './App.css';
+import Cipher from './Cipher.js';
 
-//class Main extends Component               
-    const originalData={
-            name:'IDKBlogs'
-     }
-    const salt = process.env.SALT || '6d090796-ecdf-11ea-adc1-0242ac120003';
-    const encryptedData = encryptData(originalData, salt);
-    localStorage.setItem('SOME_NON_RADABLE_KEY', encryptedData); // SOME_NON_RADABLE_KEY like 'mk' as 'myKey'
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <Cipher/>
+      </header>
+    </div>
+  );
+}
 
-export default originalData
+export default App;
